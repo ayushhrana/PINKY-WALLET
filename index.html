@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Pink Web Wallet</title>
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#ff5fa2"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Pink Wallet"><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fff0f6;--card:#fff;--soft:#ffe3ef;--pk:#ff5fa2;--rose:#d42a68;--tx:#4a1d3f;--mut:#7a5a70;--line:#f6cfe0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -174,5 +175,6 @@ document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(t&
 document.addEventListener('input',e=>{const t=e.target,k=t.dataset.f;if(!k)return;if(k==='cmm')V.cm=V.cm.slice(0,5)+pad(t.value);else if(k==='cmy')V.cm=t.value+V.cm.slice(4);else V[k]=t.value;if(k==='hq')$('#hl').innerHTML=histList();else render()});
 document.addEventListener('change',e=>{const t=e.target;if(t.id==='xr')img(t.files[0],700,d=>{XR=d;toast('Receipt attached')});if(t.id==='pf')img(t.files[0],256,d=>{PA=d;$('#pv').innerHTML=`<img src="${d}" alt="Profile preview">`});if(t.id==='xif'&&t.files[0]){const r=new FileReader();r.onload=()=>{$('#xi').value=r.result};r.readAsText(t.files[0])}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('#sh2').classList.contains('on'))A.close(2);else if($('#sh1').classList.contains('on'))A.close(1);else A.dclose()}});
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
 render();setTimeout(()=>{$('#ld').classList.add('hide');setTimeout(()=>$('#ld').remove(),500)},800);
 </script></body></html>
